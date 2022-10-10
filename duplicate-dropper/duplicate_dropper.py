@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 
 # import publications
-scopus = pd.read_csv('doi-matcher/Scopus_Papers.csv')
-wos = pd.read_csv('doi-matcher/WoS_Papers.csv')
+scopus = pd.read_csv('duplicate-dropper/Scopus_Papers.csv')
+wos = pd.read_csv('duplicate-dropper/WoS_Papers.csv')
 
 # create empty dataframe for publications
 pubs = pd.DataFrame(
@@ -68,4 +67,4 @@ print('Number of Publications without Duplicates: ', len(pubs))
 print('Number of Duplicates: ', len(scopus) + len(wos) - len(pubs))
 
 # create csv file
-pubs.to_csv('publications.csv', index=False)
+pubs.to_csv('duplicate-dropper/publications.csv', index=False)
