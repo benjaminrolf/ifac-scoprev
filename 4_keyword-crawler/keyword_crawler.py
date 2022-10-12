@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import pdfplumber
 
+''''''
 
 ### SETTINGS ###
 # saves pages with marked search results as images

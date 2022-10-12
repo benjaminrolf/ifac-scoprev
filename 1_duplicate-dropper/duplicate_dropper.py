@@ -1,8 +1,12 @@
 import pandas as pd
 
+
+'''aggregates the exports from Scopus and Web of Science in a single file and
+   drops duplicates'''
+
 # import publications
-scopus = pd.read_csv('duplicate-dropper/Scopus_Papers.csv')
-wos = pd.read_csv('duplicate-dropper/WoS_Papers.csv')
+scopus = pd.read_csv('0_resources/export/Scopus_Export.csv')
+wos = pd.read_csv('0_resources/export/WoS_Export.csv')
 
 # create empty dataframe for publications
 pubs = pd.DataFrame(
@@ -30,6 +34,7 @@ for index, row in scopus.iterrows():
             'Times cited' : row['Cited by'],
             'Abstract': row['Abstract'],
             'Link': row['Link'],
+            'Bibtex Key': 'None',
             'Source': 'Scopus'
         },
         ignore_index=True)
@@ -52,6 +57,7 @@ for index, row in wos.iterrows():
             'Times cited' : row['Times Cited'],
             'Abstract': row['Abstract'],
             'Link': row['DOI Link'],
+            'Bibtex Key': 'None',
             'Source': 'Web of Science'
         },
         ignore_index=True)
@@ -67,4 +73,4 @@ print('Number of Publications without Duplicates: ', len(pubs))
 print('Number of Duplicates: ', len(scopus) + len(wos) - len(pubs))
 
 # create csv file
-pubs.to_csv('duplicate-dropper/publications.csv', index=False)
+pubs.to_csv('0_resources/publications.csv', index=False)
