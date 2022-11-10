@@ -1,2 +1,3 @@
-# ifac-scoprev
-Scoping review for the IFAC World Congress 2023
+# Scoping Review
+'A Scoping Review on Dynamic Networks in Supply Chains' -
+Submitted to IFAC World Congress 2023
